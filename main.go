@@ -2,12 +2,15 @@ package main
 
 import (
 	"fmt"
+  "os"
 	websocketClient "websocketclient/client"
 )
 
 func main() {
 	fmt.Println("Starting WebSocket Client Application")
-	uri := "wss://websocket.goferhiro.repl.co/v1/ws"
-	//uri = "wss://socketsbay.com/wss/v2/2/demo/"
+	uri := os.Getenv("socket_url")
+  if url==""{
+    url="wss://socketsbay.com/wss/v2/2/demo/"
+  }
 	websocketClient.StartClient(uri)
 }
